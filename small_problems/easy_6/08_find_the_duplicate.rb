@@ -1,9 +1,17 @@
 # 08_find_the_duplicate.rb
 
 def find_dup(array)
+  duplicates = []
   new_array = array.sort
-  new_array.select { |element, idx| element == new_array[idx.to_i + 1] }
+  new_array.each_with_index do |element, i|
+    if new_array[i] == new_array[i + 1]
+      duplicates << element
+    else
+    end
+    duplicates
+  end
 end
+
 
 p find_dup([1, 5, 3, 1])
 p find_dup([18,  9, 36, 96, 31, 19, 54, 75, 42, 15,
