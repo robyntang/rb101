@@ -1,14 +1,17 @@
 # 08_find_the_duplicate.rb
 
-def find_dup(array)
-  duplicates = []
-  new_array = array.sort
-  new_array.each_with_index do |element, i|
-    if new_array[i] == new_array[i + 1]
-      duplicates << element
+# def find_dup(array)
+#   array.find { |element| array.count(element) == 2}
+# end
+
+def find_dup(numbers)
+  non_duplicates = []
+  numbers.each do |number|
+    if non_duplicates.include?(number)
+      return number 
     else
+      non_duplicates << number
     end
-    duplicates
   end
 end
 
