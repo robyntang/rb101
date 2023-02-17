@@ -38,7 +38,7 @@ def swapcase(string)
   characters.join
 end
 
-p swapcase('Camel Case')
+p swapcase('CamelCase') == 'cAMELcASE'
 p swapcase('Tonight on XYZ-TV') == 'tONIGHT ON xyz-tv'
 
 
