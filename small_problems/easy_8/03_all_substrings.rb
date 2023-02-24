@@ -8,16 +8,27 @@ def leading_substrings(string)
   result
 end
 
-def substrings(string)
-  result = []
-  counter = 0
+# def substrings(string)
+#   result = []
+#   counter = 0
 
-    loop do
-      result << leading_substrings(string[counter..-1])
-      counter += 1
-      break if counter == string.size
-    end
-    result.flatten
-end 
+#     loop do
+#       result << leading_substrings(string[counter..-1])
+#       counter += 1
+#       break if counter == string.size
+#     end
+#     result.flatten
+# end 
+
+def substrings(string)
+  results = []
+  (0..string.size).each do |start_index|
+    this_substring = string[start_index..-1]
+    results.concat(leading_substrings(this_substring))
+  end
+  results
+end
+
+
 
 p substrings('abcde')
