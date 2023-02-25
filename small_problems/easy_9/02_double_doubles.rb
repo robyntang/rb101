@@ -8,13 +8,29 @@
 # Write a method that returns 2 times the number provided as an argument,
 # unless the argument is a double number; double numbers should be returned as-is.
 
-twice(37) == 74
-twice(44) == 44
-twice(334433) == 668866
-twice(444) == 888
-twice(107) == 214
-twice(103103) == 103103
-twice(3333) == 3333
-twice(7676) == 7676
-twice(123_456_789_123_456_789) == 123_456_789_123_456_789
-twice(5) == 10
+def split_number(number)
+  string = number.to_s
+  string[0,string.length/2].to_i
+end
+
+# def twice(number)
+#   if 
+#     number
+#   else
+#     number * 2
+#   end
+# end
+
+p split_number(4567)
+
+
+# p twice(37) == 74
+# p twice(44) == 44
+# p twice(334433) == 668866
+# p twice(444) == 888
+# p twice(107) == 214
+# p twice(103103) == 103103
+# p twice(3333) == 3333
+# p twice(7676) == 7676
+# p twice(123_456_789_123_456_789) == 123_456_789_123_456_789
+# p twice(5) == 10
