@@ -1,0 +1,1 @@
+# 05_diamonds.rb
