@@ -1,35 +1,54 @@
 # 05_triangle_sides.rb
 
-def is_triangle?(side1, side2, side3)
-  [side1, side2, side3].each do |side|
-    return false if side.zero?
-  end
+# def is_triangle?(side1, side2, side3)
+#   [side1, side2, side3].each do |side|
+#     return false if side.zero?
+#   end
 
-  triangle = [side1, side2, side3].sort
-  return false if (triangle[0] + triangle[1]) < triangle[-1]
+#   triangle = [side1, side2, side3].sort
+#   return false if (triangle[0] + triangle[1]) < triangle[-1]
 
-  true
-end
+#   true
+# end
 
-def isosceles(side1, side2, side3)
-  triangle = [side1, side2, side3]
-  triangle.each do |side|
-    return true if triangle.count(side) > 1
-  end
-  false
-end
+# def isosceles(side1, side2, side3)
+#   triangle = [side1, side2, side3]
+#   triangle.each do |side|
+#     return true if triangle.count(side) > 1
+#   end
+#   false
+# end
+
+# def triangle(side1, side2, side3)
+#   return :invalid if is_triangle?(side1, side2, side3) == false
+
+#   if (side1 == side2) && (side2 == side3)
+#     return :equilateral
+#   elsif (side1 != side2) && (side2 != side3) && (side1 != side3)
+#     return :scalene
+#   else 
+#     return :isosceles if isosceles(side1, side2, side3) == true
+#   end
+# end
 
 def triangle(side1, side2, side3)
-  return :invalid if is_triangle?(side1, side2, side3) == false
+  sides = [side1, side2, side3]
+  largest_side = sides.max 
 
-  if (side1 == side2) && (side2 == side3)
-    return :equilateral
-  elsif (side1 != side2) && (side2 != side3) && (side1 != side3)
-    return :scalene
-  else 
-    return :isosceles if isosceles(side1, side2, side3) == true
+  case
+  when 2 * largest_side >= sides.reduce(:+), sides.include?(0)
+    :invalid
+  when side1 == side2 && side2 == side3
+    :equilateral
+  when side1 == side2 || side1 == side3 || side2 == side3
+    :isosceles
+  else
+    :scalene
   end
 end
+
+
+
 
 
 

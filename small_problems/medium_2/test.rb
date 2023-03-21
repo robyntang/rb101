@@ -1,24 +1,27 @@
-def shape(*sides)
-  array = *sides
-  p array
-end
-
-
 def is_triangle?(*sides)
-  array = *sides
-  return false unless array.size == 3
-  return false unless array.all? { |side| side > 0 }
-  return false unless (array.sum - array.max) > array.max
+  return false unless sides.size == 3
+  return false unless sides.all? { |side| side > 0 }
+  return false unless (sides.sum - sides.max) > sides.max
   true
 end
 
+# def triangle(*sides)
+#   return :invalid unless is_triangle?(*sides)
+#   return :equilateral if sides.all? { |side| sides.all?(side) }
+#   return :isosceles if sides.one? { |side| sides.one?(side) }
+#   :scalene
+#    # return :scalene if sides.all?{ |side| sides.one?(side) }
+# end
+
 def triangle(*sides)
   return :invalid unless is_triangle?(*sides)
-  array = *sides
-  return :equilateral if array.min == array.max
-  return :scalene if array.all?{ |side| array.one?(side) }
-  :isosceles
+  case sides.uniq.size
+  when 1 then :equilateral
+  when 2 then :isosceles
+  when 3 then :scalene
+  end
 end
+
 
 p triangle(3, 3, 3) == :equilateral
 p triangle(3, 3, 1.5) == :isosceles
