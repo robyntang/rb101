@@ -1,25 +1,21 @@
 # 09_bubble_sort.rb
 
 def bubble_sort!(array)
-  counter = 0
+  counter = 1
   loop do
     swapped = false
-    n = 0
-    loop do
+    (array.size - counter).times do |n|
       if array[1 + n] < array[0 + n]
         array[0 + n], array[1 + n] = array[1 + n], array[0 + n]
         swapped = true
       end
-      n += 1
-      break if n == (array.size - 1)
     end
     counter += 1
-    p counter unless swapped
     break unless swapped
   end
 end
 
-array = [1, 2, 4, 6, 7]
+array = [6, 2, 7, 1, 4]
 bubble_sort!(array)
 p array
 
