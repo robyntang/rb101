@@ -1,9 +1,9 @@
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, :jack, :queen, :king, :ace]
 
-deck = { :hearts   => cards,
-         :diamonds => cards,
-         :clubs    => cards,
-         :spades   => cards }
+deck = { :hearts   => cards.dup,
+         :diamonds => cards.dup,
+         :clubs    => cards.dup,
+         :spades   => cards.dup }
 
 def score(card)
   case card
@@ -36,10 +36,13 @@ sum = deck.reduce(0) do |sum, (_, remaining_cards)|
 end
 
 
-
-
-
-
+# p cards
+# p deck[:hearts]
+# p deck[:diamonds]
+# p deck[:clubs]
+# p deck[:spades]
+# p player_cards
+# p sum
 
 
 
