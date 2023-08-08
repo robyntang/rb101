@@ -1,7 +1,7 @@
 # 01_rotation_part_1.rb
 
 def rotate_array(array)
-  array[1..-1] + [array[0]]
+  array[1..-1] + array[0]
 end
 
 p rotate_array([7, 3, 5, 2, 9, 1]) == [3, 5, 2, 9, 1, 7]
